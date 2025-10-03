@@ -1,0 +1,15 @@
+issuer: generic_it
+keywords:
+  - "FATTURA"
+  - "Fattura"
+  - "IVA"
+  - "Totale"
+options:
+  currency: EUR
+  remove_whitespace: false
+
+fields:
+  invoice_number: '(?i)(?:fattura|nr\.?|n\.?)\s*[:\-]?\s*([A-Z0-9\-\/]+)'
+  date: '(?i)(?:data|emessa il|del)\s*[:\-]?\s*(\d{2}[\/\-]\d{2}[\/\-]\d{4})'
+  vat_number: '(?i)(?:p\.?\s?iva|partita iva|piva)\s*[:\-]?\s*([0-9]{11})'
+  amount: '(?i)(?:totale(?!\s*imponibile).{0,40}?|importo\s*totale[:\-]?\s*)(\d{1,3}(?:[\.\\s]\d{3})*[,\.]\d{2})'
